@@ -12,6 +12,7 @@ const hpp = require('hpp');
 
 // Route Imports
 import boardRouter from "./routes/boardRoutes";
+import taskRouter from "./routes/taskRoutes";
 
 
 const app = express();
@@ -55,6 +56,7 @@ app.use(hpp());
 
 // Routes
 app.use("/api/v1/boards", boardRouter);
+app.use("/api/v1/tasks", boardRouter);
 
 
 

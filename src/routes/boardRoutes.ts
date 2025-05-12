@@ -1,10 +1,11 @@
 import express from "express";
-import AppError from "../utils/appError";
-import { createBoard } from "../controller/boardController";
+import { createBoard, getBoard } from "../controller/boardController";
 
 const router = express.Router();
 
-router.post("/", createBoard)
+router.post("/", createBoard);
+router.route('/:id')
+    .get(getBoard)
 
 
 export default router;

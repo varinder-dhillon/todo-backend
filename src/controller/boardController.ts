@@ -10,7 +10,7 @@ export const createBoard = catchAsync(
 
     const board = await Board.create({});
 
-    if (!board) return next(new AppError("Board is not created!", 500));
+    if (!board) return next(new AppError("Board is not created!", status.fail));
 
     res.status(status.success).json({
       status: "Success",
@@ -18,3 +18,17 @@ export const createBoard = catchAsync(
     });
   }
 );
+
+
+export const getBoard = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
+    const { id } = req.params;
+    
+    const board = await Board.findById(id);
+
+    if (!board) return next(new AppError("Board is not not founded!", status.fail));
+
+    res.status(status.success).json({
+        status: "Success",
+        data: board
+    })
+})
