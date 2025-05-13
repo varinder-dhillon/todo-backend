@@ -6,7 +6,7 @@ import AppError from "../utils/appError";
 import { catchAsync } from "../utils/catchAsync";
 
 export const createBoard = catchAsync(
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (req, res, next) => {
     // const { name, description } = req.body;
 
     const board = await Board.create({});
@@ -21,7 +21,7 @@ export const createBoard = catchAsync(
 );
 
 
-export const getBoard = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
+export const getBoard = catchAsync(async (req, res, next) => {
     const { id } = req.params;
     
     const board = await Board.findById(id);
@@ -34,7 +34,7 @@ export const getBoard = catchAsync(async (req: Request, res: Response, next: Nex
     })
 })
 
-export const updateBoard = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
+export const updateBoard = catchAsync(async (req, res, next) => {
     const { id } = req.params;
     const {name, description } = req.body
     const body:{
@@ -57,4 +57,17 @@ export const updateBoard = catchAsync(async (req: Request, res: Response, next: 
         status: "Success",
         data: board
     })
+})
+
+export const deleteBoard = catchAsync(async (req, res, next) => {
+  const { id } = req.params;
+
+  const board = await Board.findByIdAndDelete(id);
+
+  if(!board) return next(new AppError("Board is not found with the id.", status.notFound))
+
+  res.status(status.noContent).json({
+    status: "Success",
+    data: board
+  })
 })
