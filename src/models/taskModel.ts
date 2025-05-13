@@ -23,7 +23,7 @@ const taskSchema: Schema<ITask> = new Schema({
         required: [true, "Task should have status."]
     },
     boardId: {
-        type: mongoose.Schema.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "Board",
         required: [true, "Task must belong to a user."]
     }

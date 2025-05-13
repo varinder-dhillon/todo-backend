@@ -24,7 +24,7 @@ export const createBoard = catchAsync(
 export const getBoard = catchAsync(async (req, res, next) => {
     const { id } = req.params;
     
-    const board = await Board.findById(id);
+    const board = await Board.findById(id).populate("tasks");
 
     if (!board) return next(new AppError("Board is not not founded!", status.fail));
 
