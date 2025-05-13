@@ -56,7 +56,7 @@ app.use(hpp());
 
 // Routes
 app.use("/api/v1/boards", boardRouter);
-app.use("/api/v1/tasks", boardRouter);
+app.use("/api/v1/tasks", taskRouter);
 
 
 
