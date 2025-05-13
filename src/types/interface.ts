@@ -1,4 +1,4 @@
-import { Document } from "mongoose";
+import { Document, Types } from "mongoose";
 
 export interface IBoard extends Document {
   name: string;
@@ -12,7 +12,7 @@ export interface ITask extends Document {
   description: string;
   icon: string;
   status: string;
-  boardId: string;
+  boardId: Types.ObjectId;
   createdAt?: Date;
   updatedAt?: Date;
 }

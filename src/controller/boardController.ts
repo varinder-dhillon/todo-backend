@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import Board from "../model/boardModel";
+import Board from "../models/boardModel";
 import { status } from "../types/constants";
 import { IBoard } from "../types/interface";
 import AppError from "../utils/appError";
