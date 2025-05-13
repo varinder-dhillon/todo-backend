@@ -1,11 +1,6 @@
 import mongoose, { Schema, Document } from "mongoose";
+import { IBoard } from "../types/interface";
 
-interface IBoard extends Document {
-  name: string;
-  description: string;
-  createdAt?: Date;
-  updatedAt?: Date;
-}
 
 const boardSchema: Schema<IBoard> = new Schema(
   {
