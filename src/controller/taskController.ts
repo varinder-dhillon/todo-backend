@@ -31,8 +31,7 @@ export const deleteTask = catchAsync(async (req, res, next) => {
     const task = await Task.findByIdAndDelete(id);
     if(!task) return next(new AppError("Task not found", status.notFound));
 
-    res.status(status.noContent).json({
+    res.status(status.success).json({
         status: "Success",
-        data: task
     })
 })
