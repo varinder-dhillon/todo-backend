@@ -19,13 +19,13 @@ const taskSchema: Schema<ITask> = new Schema({
     },
     status: {
         type: String,
-        enum: ["inProgress", "completed", "wontDo"],
-        required: [true, "Task should have status."]
+        enum: ["inProgress", "completed", "wontDo", ""],
+        // required: [true, "Task should have status."]
     },
     boardId: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,   
         ref: "Board",
-        required: [true, "Task must belong to a user."]
+        required: [true, "Task must belong to a board."]
     }
 }, {timestamps: true})
 

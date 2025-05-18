@@ -23,6 +23,6 @@ export const tasks:Task[] = [
         name: "Task to do",
         icon: "study",
         description: "Work on a challenge on devchallenge.io, learn typescript.",
-        status: "wontDo"
+        status: ""
     }
 ]
