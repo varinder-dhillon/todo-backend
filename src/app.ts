@@ -6,7 +6,7 @@ import morgan from "morgan";
 import AppError from "./utils/appError";
 import globalErrorHandler from "./controller/appErrorcontroller";
 import sanitizeRequest from "./utils/sanitize";
-
+import cors from "cors";
 
 const hpp = require('hpp');
 
@@ -16,6 +16,13 @@ import taskRouter from "./routes/taskRoutes";
 
 
 const app = express();
+
+// Allow requests from Vite frontend
+app.use(cors({
+  origin: "*", // or "*" for all
+  credentials: true // if you're using cookies or authorization headers
+}));
+
 
 // global middlewares
 // set security http headers
